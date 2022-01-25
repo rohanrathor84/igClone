@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import HeaderScreen from '../components/home/HeaderScreen';
 import Stories from '../components/home/Stories';
 
@@ -14,7 +14,6 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'black',
     flex: 1,
   },
 });

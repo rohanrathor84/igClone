@@ -1,35 +1,30 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {white} from '../../utils/Colors';
+import {useTheme} from '@react-navigation/native';
 
 export default function HeaderScreen() {
+  const {colors} = useTheme();
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>Instagram</Text>
+      <Text style={[styles.logo, {color: colors.text}]}> Instagram </Text>
       <View style={styles.iconContainer}>
-        <Image
-          source={{
-            uri: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png',
-          }}
-          style={styles.iconStyle}
-          resizeMode="contain"
+        <FontAwesome
+          name={'plus-square-o'}
+          size={24}
+          color={colors.text}
+          style={{marginEnd: 20}}
         />
-        <Image
-          source={{
-            uri: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png',
-          }}
-          style={styles.iconStyle}
-          resizeMode="contain"
-        />
-        <TouchableOpacity>
+        <TouchableOpacity activeOpacity={1}>
           <View style={styles.unreadBadge}>
             <Text style={styles.unreadBadgeText}>23</Text>
           </View>
-          <Image
-            source={{
-              uri: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/facebook-messenger.png',
-            }}
-            style={styles.iconStyle}
-            resizeMode="contain"
+          <MaterialCommunityIcons
+            name={'facebook-messenger'}
+            size={24}
+            color={colors.text}
           />
         </TouchableOpacity>
       </View>
@@ -42,16 +37,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    marginHorizontal: 20,
+    marginHorizontal: 14,
   },
   logo: {
-    fontFamily: 'billabong',
-    fontSize: 28,
-    color: 'white',
-    paddingTop: 12,
+    fontFamily: 'Fontspring',
+    fontSize: 24,
+    paddingVertical: 12,
   },
   iconContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   unreadBadge: {
     backgroundColor: '#FF3250',
@@ -66,7 +61,7 @@ const styles = StyleSheet.create({
     minWidth: 22,
   },
   unreadBadgeText: {
-    color: 'white',
+    color: white,
     fontWeight: '600',
   },
   iconStyle: {

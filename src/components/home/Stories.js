@@ -1,5 +1,16 @@
 import React from 'react';
-import {View, Text, FlatList, Image, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  Dimensions,
+  useColorScheme,
+  StyleSheet,
+} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import {black, gray400, gray800, white} from '../../utils/Colors';
+import LinearGradient from 'react-native-linear-gradient';
 
 const data = [
   {
@@ -40,25 +51,36 @@ const data = [
 ];
 
 export default function Stories() {
+  const {colors} = useTheme();
+  const scheme = useColorScheme();
+
   function renderItem({item, index}) {
     return (
       <View
         style={{
           alignItems: 'center',
           marginEnd: 10,
-          marginStart: index == 0 ? 10 : 0,
+          marginStart: index == 0 ? 14 : 0,
         }}>
-        <Image
-          source={{uri: item.image_url}}
-          style={{
-            height: 50,
-            width: 50,
-            borderRadius: 50,
-            borderWidth: 2,
-            borderColor: 'orange',
-          }}
-        />
-        <Text style={{color: 'white', width: 60}} numberOfLines={1}>
+        <LinearGradient
+          colors={['#ff0000', '#ffed00']}
+          start={{x: 1, y: 0}}
+          end={{x: 0, y: 1}}
+          style={styles.linearGradient}>
+          <View style={{elevation: 6}}>
+            <Image
+              source={{uri: item.image_url}}
+              style={{
+                height: 46,
+                width: 46,
+                borderRadius: 23,
+                borderWidth: 2,
+                borderColor: scheme === 'dark' ? black : white,
+              }}
+            />
+          </View>
+        </LinearGradient>
+        <Text style={{color: colors.text, width: 60}} numberOfLines={1}>
           {item.name}
         </Text>
       </View>
@@ -77,11 +99,21 @@ export default function Stories() {
       <View
         style={{
           width: Dimensions.get('screen').width,
-          height: 1,
-          backgroundColor: 'white',
+          height: 0.2,
+          backgroundColor: scheme === 'dark' ? gray800 : gray400,
           marginTop: 5,
         }}
       />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  linearGradient: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
