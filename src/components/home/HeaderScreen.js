@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 14,
   },
   logo: {
-    fontFamily: 'Fontspring',
+    fontFamily: 'instagram',
     fontSize: 24,
     paddingVertical: 12,
   },

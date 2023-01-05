@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/resources/fonts/billabong.ttf",
+      "sha1": "bb8d488bbbd8fdd5021139f24bdabdfbcb69a753"
+    },
+    {
+      "path": "src/resources/fonts/instagram.otf",
+      "sha1": "d7e7730cec934d76d546b579eb84aa576a6f18d5"
+    },
+    {
+      "path": "src/resources/fonts/newFontFile.ttf",
+      "sha1": "0d6c51cf06f74fa9fbb4cf5b0b9f4c97120ecd15"
+    },
+    {
+      "path": "src/resources/fonts/roboto.bold.ttf",
+      "sha1": "47327df0f35e7cd7c8645874897a7449697544ae"
+    },
+    {
+      "path": "src/resources/fonts/roboto.light.ttf",
+      "sha1": "e321c183e2b75ee19813892b7bac8d7c411cb88a"
+    },
+    {
+      "path": "src/resources/fonts/roboto.medium.ttf",
+      "sha1": "6060ca726b9760b76f7c347dce9d2fa1fe42ec92"
+    },
+    {
+      "path": "src/resources/fonts/roboto.regular.ttf",
+      "sha1": "824b5480c977a8166e177e5357d13164ccc45f47"
+    }
+  ]
+}

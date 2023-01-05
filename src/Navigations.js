@@ -17,7 +17,7 @@ import Home from './screens/Home';
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function MyTabs() {
+export default function Navigations() {
   const screenOptions = {
     headerShown: false,
   };

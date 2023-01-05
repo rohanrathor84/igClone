@@ -56,18 +56,13 @@ export default function Stories() {
 
   function renderItem({item, index}) {
     return (
-      <View
-        style={{
-          alignItems: 'center',
-          marginEnd: 10,
-          marginStart: index == 0 ? 14 : 0,
-        }}>
+      <View style={styles.renderItemStyle}>
         <LinearGradient
           colors={['#ff0000', '#ffed00']}
           start={{x: 1, y: 0}}
           end={{x: 0, y: 1}}
           style={styles.linearGradient}>
-          <View style={{elevation: 6}}>
+          <View style={styles.imageViewStyle}>
             <Image
               source={{uri: item.image_url}}
               style={{
@@ -89,13 +84,43 @@ export default function Stories() {
 
   return (
     <View>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      <View style={{flexDirection: 'row'}}>
+        <View
+          style={{
+            alignItems: 'center',
+            marginEnd: 10,
+            marginStart: 14,
+          }}>
+          <LinearGradient
+            colors={['#ff0000', '#ffed00']}
+            start={{x: 1, y: 0}}
+            end={{x: 0, y: 1}}
+            style={styles.linearGradient}>
+            <View style={{elevation: 6}}>
+              <Image
+                source={require('../../resources/assets/my-photo.jpg')}
+                style={{
+                  height: 46,
+                  width: 46,
+                  borderRadius: 23,
+                  borderWidth: 2,
+                  borderColor: scheme === 'dark' ? black : white,
+                }}
+              />
+            </View>
+          </LinearGradient>
+          <Text style={{color: colors.text, width: 60}} numberOfLines={1}>
+            Rohan Kumar
+          </Text>
+        </View>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
       <View
         style={{
           width: Dimensions.get('screen').width,
@@ -116,4 +141,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  renderItemStyle: {
+    alignItems: 'center',
+    marginEnd: 10,
+  },
+  imageViewStyle: {elevation: 6},
 });
